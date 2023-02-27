@@ -1,5 +1,6 @@
 import { StyleSheet, View, SafeAreaView } from 'react-native'
 import React from 'react'
+import CustomButton from '../../components/CustomButton'
 
 const LoginScreen = () => {
   return (
@@ -19,7 +20,7 @@ const LoginScreen = () => {
           onChangeText={(e) => setstate({ ...state, password: e })}
         />
 
-        {/* <CustomButton
+        <CustomButton
           isLoading={isLoading}
           title='Login'
           handleNavigation={handleRoute}
@@ -28,7 +29,7 @@ const LoginScreen = () => {
         <CustomButton
           title='Signup'
           handleNavigation={() => navigation.navigate(navigationStrings.SIGNUP)}
-        /> */}
+        />
       </View>
 
     </SafeAreaView>
