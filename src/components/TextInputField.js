@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, TextInput, SafeAreaView } from 'react-native'
+import { StyleSheet, Text, TextInput, SafeAreaView } from 'react-native'
 import React from 'react'
 
 
