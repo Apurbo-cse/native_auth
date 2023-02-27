@@ -1,5 +1,5 @@
 import { LOGIN, SIGNUP } from "../../config/urls";
-import { apiPost, clearUserData, setUserData } from "../../utils/utlits";
+import { apiPost, clearUserData, setUserData } from "../../utils/utlist";
 import states from "../states/states";
 import store from "../store";
 const {dispatch}=store
@@ -25,6 +25,7 @@ export function login(data){
         resolve(res)
       
     }).catch(err=>reject(err))
+    
    })
 }
 

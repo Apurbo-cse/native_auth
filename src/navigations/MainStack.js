@@ -1,4 +1,4 @@
-import navigationStrings from "./navigationStrings";
+import navigationStrings from "./navigationString";
 import TabRoute from "./TabRoute";
 
 export default function (Stack) {

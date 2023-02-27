@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import navigationStrings from './navigationStrings';
+import navigationStrings from './navigationString';
 import { Home } from '../screens';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 const HomeStackScreen = createNativeStackNavigator();

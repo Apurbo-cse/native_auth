@@ -2,7 +2,7 @@ import { StyleSheet, Text, View, SafeAreaView } from "react-native";
 import React, { useState } from "react";
 import TextInputField from "../../components/TextInputField";
 import CustomButton from "../../components/CustomButton";
-import navigationStrings from "../../navigations/navigationStrings";
+import navigationStrings from "../../navigations/navigationString";
 import validator from "../../utils/validation";
 import { showError, showMessage } from "../../utils/helperFunc";
 import actions from "../../redux/actions";

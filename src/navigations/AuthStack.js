@@ -1,5 +1,5 @@
 import { Flash, Login, SignUp } from "../screens";
-import navigationStrings from "./navigationStrings";
+import navigationStrings from "./navigationString";
 
 export default function (Stack) {
     return (

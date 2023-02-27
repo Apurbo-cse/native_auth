@@ -1,6 +1,6 @@
 import { Button, StyleSheet, Text, View } from "react-native";
 import React from "react";
-import navigationStrings from "../../navigations/navigationStrings";
+import navigationStrings from "../../navigations/navigationString";
 const Home = ({ navigation }) => {
   return (
     <View>
