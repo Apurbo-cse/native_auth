@@ -1,40 +1,41 @@
-import { LOGIN, SIGNUP } from "../../config/urls";
-import { apiPost, clearUserData, setUserData } from "../../utils/utlist";
-import states from "../states/states";
-import store from "../store";
-const {dispatch}=store
 
-export const saveUserData=(data)=>{
+import { LOGIN, SIGNUP } from "../../config/urls";
+import { apiPost, clearUserData, setUserData } from "../../utils/utils";
+import store from "../store";
+import types from "../types";
+
+const { dispatch } = store
+
+
+export const saveUserData = (data) => {
     dispatch({
-        type:states.LOGIN,
-        payload:data
+        type: types.LOGIN,
+        payload: data
     })
 }
 
-export function login(data){
-   return new Promise((resolve,reject)=>{
-    return apiPost(LOGIN,data)
-    .then((res)=>{
-        if(res.status==200){
-            setUserData(res).then(()=>{
-                resolve(res)
-                saveUserData(res)
-            });
-            return
-        }
-        resolve(res)
-      
-    }).catch(err=>reject(err))
-    
-   })
+export function login(data) {
+    return new Promise((resolve, reject) => {
+        return apiPost(LOGIN, data).then((res) => {
+            if (res.data.emailVerified) {
+                setUserData(res.data).then(() => {
+                    resolve(res)
+                    saveUserData(res.data)
+                });
+                return
+            }
+            resolve(res)
+        }).catch((error) => {
+            reject(error)
+        })
+    })
 }
 
-
-export function signup(data){
-    return apiPost(SIGNUP,data)
+export function signup(data) {
+    return apiPost(SIGNUP, data)
 }
 
 export function logout(){
-dispatch({type:states.CLEAN_STATE_REDUX});
-clearUserData()
+    dispatch({type: types.CLEAR_REDUX_STATE})
+    clearUserData()
 }
