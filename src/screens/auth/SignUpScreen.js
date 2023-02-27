@@ -28,7 +28,6 @@ const SignUpScreen = () => {
           secureTextEntry={isSecure}
           onChangeText={(e) => setstate({ ...state, password: e })}
         />
-
         <CustomButton
           isLoading={isLoading}
           title="Signup"
