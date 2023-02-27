@@ -1,5 +1,7 @@
 import { StyleSheet, View, SafeAreaView } from 'react-native'
 import React from 'react'
+
+import TextInputField from '../../components/TextInputField'
 import CustomButton from '../../components/CustomButton'
 
 const LoginScreen = () => {
