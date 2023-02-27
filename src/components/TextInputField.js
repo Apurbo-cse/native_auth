@@ -20,7 +20,6 @@ const TextInputField = (
         style={styles.input}
         placeholder={placeholder}
         onChangeText={onChangeText}
-
         {...props}
       />
     </SafeAreaView>
