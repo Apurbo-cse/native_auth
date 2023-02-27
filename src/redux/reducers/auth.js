@@ -1,4 +1,5 @@
-import types from "../types";
+import states from "../states/states"
+
 
 const initial_state = {
     userData: {}
@@ -6,10 +7,11 @@ const initial_state = {
 
 export default function(state= initial_state, action){
     switch (action.type) {
-        case types.LOGIN:
+        case states.LOGIN:
             const data = action.payload
             return {userData: data}        
         default:
             return {...state}
     }
 }
+

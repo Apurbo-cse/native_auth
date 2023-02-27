@@ -1,12 +1,13 @@
 //import liraries
 import React, {useEffect} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
-import Routes from './src/Navigations/Route';
 import FlashMessage from 'react-native-flash-message';
 import {Provider} from 'react-redux';
 import store from './src/redux/store';
-import {getUserData} from './src/utils/utils';
+
 import {saveUserData} from './src/redux/actions/auth';
+import Routes from './src/navigations/routes';
+import { getUserData } from './src/utils/utlits';
 
 const App = () => {
   useEffect(() => {
