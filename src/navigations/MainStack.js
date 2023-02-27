@@ -1,11 +1,10 @@
-import React from "react";
-import navigationString from "./navigationString";
+import navigationStrings from "./navigationStrings";
 import TabRoute from "./TabRoute";
 
 export default function (Stack) {
-  return (
+    return (
     <>
-      <Stack.Screen name={navigationString.TABROUTE} component={TabRoute} />
+        <Stack.Screen name={navigationStrings.TABROUTE} component={TabRoute} />
     </>
-  );
+    )
 }
