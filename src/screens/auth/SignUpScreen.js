@@ -29,7 +29,7 @@ const SignUpScreen = () => {
           onChangeText={(e) => setstate({ ...state, password: e })}
         />
 
-        <CustomButtons
+        <CustomButton
           isLoading={isLoading}
           title="Signup"
           handleNavigation={handleRoute}
