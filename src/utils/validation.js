@@ -77,7 +77,6 @@ export default function (data) {
         }
     }
 
-
     if (phone !== undefined) {
         let emptyVailidation = checkEmpty(phone, 'Please Enter your phone number!');
         if (emptyVailidation !== '') {
