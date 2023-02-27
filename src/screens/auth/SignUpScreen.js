@@ -1,9 +1,61 @@
-import { StyleSheet, View, SafeAreaView } from 'react-native'
-import React from "react";
-import TextInputField from '../../components/TextInputField';
-import CustomButton from '../../components/CustomButton';
+import { StyleSheet, Text, View, SafeAreaView } from "react-native";
+import React, { useState } from "react";
+import TextInputField from "../../components/TextInputField";
+import CustomButton from "../../components/CustomButton";
+import navigationStrings from "../../navigations/navigationStrings";
+import validator from "../../utils/validation";
+import { showError, showMessage } from "../../utils/helperFunc";
+import actions from "../../redux/actions";
 
-const SignUpScreen = () => {
+const SignUpScreen = ({ navigation }) => {
+  const [state, setstate] = useState({
+    isLoading: false,
+    first_name: "",
+    email: "",
+    password: "",
+    phone: "",
+    isSecure: true,
+  });
+  const { email, isLoading, password, isSecure, first_name, phone } = state;
+  const isVaildData = () => {
+    const error = validator({
+      first_name,
+      email,
+      phone,
+      password,
+    });
+    if (error) {
+      showError(error);
+      return false;
+    }
+    return true;
+  };
+
+  async function handleRoute() {
+    const checkVaild = isVaildData();
+    if (checkVaild) {
+      setstate({ ...state, isLoading: true });
+      try {
+        const res = await actions.signup({
+          first_name,
+          email,
+          phone,
+          password,
+        });
+        // console.log('signup res data==> ', res)
+        setstate({ ...state, isLoading: false });
+        showMessage("Please verfify your mail and password");
+        navigation.goBack();
+      } catch (error) {
+        console.log(error);
+        showError(error.message);
+        setstate({ ...state, isLoading: false });
+      }
+
+      // navigation.navigate(navigationStrings.SIGNUP);
+    }
+  }
+
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <View style={{ flex: 1 }}>
@@ -28,6 +80,7 @@ const SignUpScreen = () => {
           secureTextEntry={isSecure}
           onChangeText={(e) => setstate({ ...state, password: e })}
         />
+
         <CustomButton
           isLoading={isLoading}
           title="Signup"
