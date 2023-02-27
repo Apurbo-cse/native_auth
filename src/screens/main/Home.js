@@ -1,14 +1,18 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
-
-const Home = () => {
+import { Button, StyleSheet, Text, View } from "react-native";
+import React from "react";
+import navigationStrings from "../../navigations/navigationStrings";
+const Home = ({ navigation }) => {
   return (
     <View>
-      <Text>Home</Text>
+      <Button
+        title="Dashborad"
+        onPress={() => navigation.navigate(navigationStrings.DASHBORARD)}
+      />
+      <Text style={{ color: "red" }}>This is Home page</Text>
     </View>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({});
